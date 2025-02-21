@@ -1,6 +1,8 @@
+MAX_LINES = 3
+
 def deposit():
     while True:
-        amount = input("What would you like to deposit? $$")
+        amount = input("What would you like to deposit? $")
         if amount.isdigit():
             amount = int(amount)
             if amount > 0:
@@ -10,4 +12,23 @@ def deposit():
         else:
             print("Enter a number")
     return amount
-deposit()
+
+def get_number_of_lines():
+    while True:
+        lines = input("Enter number of lines to bet (1- " +str(MAX_LINES)+ ")? ")
+        if lines.isdigit():
+            lines = int(lines)
+            if  1 <= lines <= MAX_LINES:
+                break
+            else:
+                print("Enter valid number of lines")
+        else:
+            print("Enter a number")
+    return lines
+
+def main():
+    balance = deposit()
+    lines = get_number_of_lines()
+    print(balance, lines)
+
+main()
